@@ -1,35 +1,37 @@
-apiVersion: backstage.io/v1beta2
-kind: Template
-# some metadata about the template itself
+apiVersion: backstage.io/v1beta2kind: Template
 metadata:
-  name: EMR
-  title: Test Action template
-  description: scaffolder v1beta2 template demo
+  name: create-EMR-template
+  title: Create EMR Template
+  description: Create a new CRA website project
+  tags:
+    - experimental
+    - react
+    - cra
 spec:
-  owner: cloud/kramasamy
-  type: service
+  owner: web@example.com
+  templater: cra
+  type: website
+  path: '.'
+  
+  schema:
+    required: 
+      - component_id
+      - use_typescript
+      - description
+      - collaborators
+    properties:
+      component_id:
+        title: Name
+        type: string
+        pattern: ^[a-z0-9]+(-[a-z0-9]+)*$
+        description: Unique name of the component. Lowercase, URL-safe characters only.
+      description:
+        title: Description
+        type: string
+        description: Help others understand what this website is for.
+      use_typescript:
+        title:  Use TypeScript
+        type: boolean
+        description: Include TypeScript
+        default: true
 
-  # these are the steps which are rendered in the frontend with the form input
-  parameters:
-    - title: Fill in some steps
-      required:
-        - name
-      properties:
-        name:
-          title: Name
-          type: string
-          description: Unique name of the component
-          ui:autofocus: true
-          ui:options:
-            rows: 5
-    - title: Choose a location
-      required:
-        - repoUrl
-      properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
