@@ -1,3 +1,4 @@
+apiVersion: backstage.io/v1beta2
 kind: Template
 metadata:
   name: create-emr-app-template
