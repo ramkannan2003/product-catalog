@@ -1,0 +1,35 @@
+apiVersion: backstage.io/v1beta2
+kind: Template
+# some metadata about the template itself
+metadata:
+  name: EMR
+  title: Test Action template
+  description: scaffolder v1beta2 template demo
+spec:
+  owner: cloud/kramasamy
+  type: service
+
+  # these are the steps which are rendered in the frontend with the form input
+  parameters:
+    - title: Fill in some steps
+      required:
+        - name
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Unique name of the component
+          ui:autofocus: true
+          ui:options:
+            rows: 5
+    - title: Choose a location
+      required:
+        - repoUrl
+      properties:
+        repoUrl:
+          title: Repository Location
+          type: string
+          ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
