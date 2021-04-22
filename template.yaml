@@ -3,8 +3,8 @@ kind: Template
 # some metadata about the template itself
 metadata:
   name: v1beta2-demo
-  title: Test Action template
-  description: scaffolder v1beta2 template demo
+  title: EMR Template
+  description: EMR Hadoop
 spec:
   owner: backstage/techdocs-core
   type: service
@@ -16,7 +16,7 @@ spec:
         - name
       properties:
         name:
-          title: Name
+          title: EMR Name
           type: string
           description: Unique name of the component
           ui:autofocus: true
